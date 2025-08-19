@@ -1,3 +1,5 @@
+import './Services.css';
+
 const Services = () => {
   const services = [
     {
@@ -31,23 +33,18 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 px-4 bg-white">
-      <div className="container mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+    <section id="services" className="services">
+      <div className="container">
+        <div className="services-header">
+          <h2 className="services-title">
             Comprehensive Care for a Seamless Experience
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="services-grid">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-slate-50 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
-            >
-              <h3 className="text-xl font-semibold text-teal-600 mb-3">
-                {service.title}
-              </h3>
-              <p className="text-gray-600">{service.description}</p>
+            <div key={index} className="service-card">
+              <h3 className="service-card-title">{service.title}</h3>
+              <p className="service-card-description">{service.description}</p>
             </div>
           ))}
         </div>

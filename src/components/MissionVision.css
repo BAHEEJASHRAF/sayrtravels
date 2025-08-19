@@ -1,0 +1,38 @@
+.mission-vision {
+  padding: 5rem 0;
+  background-color: #000;
+}
+
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.card {
+  background-color: #000080; /* Navy Blue */
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #444;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.5rem; /* 24px */
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  color: #ccc; /* Light Gray */
+  line-height: 1.7;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

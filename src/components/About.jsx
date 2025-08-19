@@ -1,11 +1,13 @@
+import './About.css';
+
 const About = () => {
   return (
-    <section id="about" className="py-20 px-4 bg-slate-50">
-      <div className="container mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+    <section id="about" className="about">
+      <div className="container about-container">
+        <h2 className="about-title">
           Your Trusted Partner in Health & Wellness
         </h2>
-        <p className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+        <p className="about-text">
           The stress and strain of the modern world have increased the disease
           burden on people across the globe. From chronic conditions like
           diabetes and heart disease to orthopedic problems and cancers, these

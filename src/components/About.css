@@ -1,0 +1,29 @@
+.about {
+  padding: 5rem 0;
+  background-color: #00002E; /* Dark Navy Blue */
+}
+
+.about-container {
+  text-align: center;
+}
+
+.about-title {
+  font-size: 2.25rem; /* 36px */
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.about-text {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #ccc; /* Light Gray */
+  line-height: 1.7;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 1.875rem; /* 30px */
+  }
+}

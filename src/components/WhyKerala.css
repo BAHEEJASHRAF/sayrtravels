@@ -1,0 +1,48 @@
+.why-kerala {
+  padding: 5rem 0;
+  background-color: #00002E; /* Dark Navy Blue */
+}
+
+.why-kerala-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.why-kerala-title {
+  font-size: 2.25rem; /* 36px */
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.why-kerala-text p {
+  color: #ccc; /* Light Gray */
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.why-kerala-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .why-kerala-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .why-kerala-title {
+    font-size: 1.875rem; /* 30px */
+  }
+
+  .why-kerala-image {
+    order: -1; /* Move image to the top on mobile */
+    margin-bottom: 2rem;
+  }
+}
