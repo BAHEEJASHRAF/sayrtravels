@@ -13,7 +13,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b">
+    <header className="sticky top-0 z-50 border bg-gray-100/10 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-2">
           <div className="w-9 h-9 rounded-xl bg-gray-900 text-white grid place-items-center">
