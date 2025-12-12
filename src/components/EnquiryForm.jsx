@@ -25,39 +25,44 @@ export default function EnquiryForm({ isOpen, onClose }) {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Google Form Configuration
-        const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSedHbqUG5n60tyTxDyqY-DXimVCwchbGaj7MBhQ7jrsCoOG6Q/formResponse";
+        // Google Apps Script Web App URL
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzoxiH-CjwgPd3OdmRwASX_vb2OBMSQpJfPsQ8RpkN_lxotbb_rvv6SFcQM5twTyfEFEA/exec";
 
-        // Mapping form fields to Google Form Entry IDs
-        const formBody = new FormData();
-        formBody.append("entry.279867625", formData.name);
-        formBody.append("entry.388284468", formData.email);
-        formBody.append("entry.152275669", formData.mobile);
-        formBody.append("entry.1439156857", formData.country);
-        formBody.append("entry.530992765", formData.concern);
+        console.log("Submitting Form Data:", formData); // Debugging: Check if all fields are present
 
         try {
-            await fetch(GOOGLE_FORM_ACTION_URL, {
+            const response = await fetch(WEB_APP_URL, {
+                redirect: "follow",
                 method: "POST",
-                mode: "no-cors", // Essential for bypassing CORS restriction on Google Forms
-                body: formBody
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8",
+                },
+                body: JSON.stringify(formData)
             });
 
-            alert("Thank you! Your enquiry has been sent. We will contact you shortly.");
+            // With Google Apps Script, we might get a redirect, fetch follows it.
+            // We expect the final response to be JSON.
+            const result = await response.json();
 
-            // Reset form
-            setFormData({
-                name: '',
-                email: '',
-                mobile: '',
-                country: '',
-                concern: ''
-            });
-            onClose();
+            if (result.result === "success") {
+                alert("Enquiry sent successfully! We will connect with you soon.");
+
+                // Reset form
+                setFormData({
+                    name: '',
+                    email: '',
+                    mobile: '',
+                    country: '',
+                    concern: ''
+                });
+                onClose();
+            } else {
+                throw new Error("Server returned unsuccessful result");
+            }
 
         } catch (error) {
             console.error("Submission Error:", error);
-            alert("Something went wrong. Please try again later.");
+            alert("Failed to send enquiry. Please try again or contact us directly.");
         } finally {
             setIsSubmitting(false);
         }
@@ -167,8 +172,8 @@ export default function EnquiryForm({ isOpen, onClose }) {
                         type="submit"
                         disabled={isSubmitting}
                         className={`w-full py-3 px-4 text-white font-bold rounded-lg shadow-lg transition-all ${isSubmitting
-                                ? 'bg-gray-400 cursor-not-allowed'
-                                : 'bg-blue-600 hover:bg-blue-700 hover:shadow-xl hover:-translate-y-0.5'
+                            ? 'bg-gray-400 cursor-not-allowed'
+                            : 'bg-blue-600 hover:bg-blue-700 hover:shadow-xl hover:-translate-y-0.5'
                             }`}
                     >
                         {isSubmitting ? "Sending..." : "Submit Enquiry"}
