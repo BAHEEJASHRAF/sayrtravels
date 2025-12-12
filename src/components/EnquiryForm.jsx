@@ -201,11 +201,10 @@ export default function EnquiryForm({ isOpen, onClose }) {
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full py-3 px-4 text-white font-bold rounded-lg shadow-lg transition-all ${
-              isSubmitting
+            className={`w-full py-3 px-4 text-white font-bold rounded-lg shadow-lg transition-all ${isSubmitting
                 ? "bg-gray-400 cursor-not-allowed"
                 : "bg-blue-600 hover:bg-blue-700 hover:shadow-xl hover:-translate-y-0.5"
-            }`}
+              }`}
           >
             {isSubmitting ? "Sending..." : "Submit Enquiry"}
           </button>

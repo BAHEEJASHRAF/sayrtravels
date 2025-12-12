@@ -15,27 +15,27 @@ export default function Hero({
       style={{ backgroundImage: `url(${heroImg})` }}
     >
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/50"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center text-white">
         <div>
-          <h1 className="text-4xl md:text-5xl font-extrabold">
+          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
             {title}
           </h1>
-          <p className="mt-5 text-lg leading-relaxed">
+          <p className="mt-5 text-lg leading-relaxed text-blue-50">
             {subtitle}
           </p>
           <div className="mt-8 flex gap-3">
             <a
               href="#services"
-              className="px-5 py-3 rounded-xl bg-white text-gray-900 font-medium"
+              className="px-6 py-3 rounded-xl bg-white text-gray-900 font-semibold hover:bg-gray-50 transition-all"
               onClick={onServicesClick}
             >
               Explore Services
             </a>
             <button
               onClick={onEnquiryClick}
-              className="px-5 py-3 rounded-xl border font-medium bg-white/80 text-gray-900"
+              className="px-6 py-3 rounded-xl border-2 border-white/20 hover:border-white/40 font-medium bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-all"
             >
               Get Started
             </button>

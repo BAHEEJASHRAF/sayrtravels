@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 
-const NavLink = ({ href, children }) => (
-  <a
-    href={href}
-    className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg"
-  >
-    {children}
-  </a>
+<a
+  href={href}
+  className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors"
+>
+  {children}
+</a>
 );
 
 export default function Navbar({ activeVertical, onToggleVertical, onEnquiryClick }) {
@@ -16,22 +15,22 @@ export default function Navbar({ activeVertical, onToggleVertical, onEnquiryClic
   const brandName = activeVertical === 'med' ? "Sayr Med" : "Sayr Travels";
 
   return (
-    <header className="sticky top-0 z-50 border bg-gray-100/10 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <a href="#home" className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-xl bg-gray-900 text-white grid place-items-center">
+            <div className={`w-9 h-9 rounded-xl text-white grid place-items-center font-bold shadow-md bg-gradient-to-br ${activeVertical === 'med' ? 'from-blue-600 to-teal-500' : 'from-orange-500 to-yellow-500'}`}>
               {activeVertical === 'med' ? 'SM' : 'ST'}
             </div>
-            <span className="text-lg font-bold tracking-tight">{brandName}</span>
+            <span className={`text-lg font-bold tracking-tight ${activeVertical === 'med' ? 'text-blue-900' : 'text-gray-900'}`}>{brandName}</span>
           </a>
 
           {/* Vertical Toggle */}
-          <div className="hidden sm:flex bg-gray-200 rounded-lg p-1">
+          <div className="hidden sm:flex bg-gray-100 rounded-lg p-1">
             <button
               onClick={() => onToggleVertical('med')}
               className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${activeVertical === 'med'
-                ? 'bg-white shadow-sm text-gray-900'
+                ? 'bg-white shadow-sm text-blue-700'
                 : 'text-gray-500 hover:text-gray-700'
                 }`}
             >
@@ -40,7 +39,7 @@ export default function Navbar({ activeVertical, onToggleVertical, onEnquiryClic
             <button
               onClick={() => onToggleVertical('travels')}
               className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${activeVertical === 'travels'
-                ? 'bg-white shadow-sm text-gray-900'
+                ? 'bg-white shadow-sm text-orange-600'
                 : 'text-gray-500 hover:text-gray-700'
                 }`}
             >
@@ -56,7 +55,7 @@ export default function Navbar({ activeVertical, onToggleVertical, onEnquiryClic
           <NavLink href="#contact">Contact</NavLink>
           <button
             onClick={onEnquiryClick}
-            className="ml-2 px-4 py-2 rounded-lg bg-gray-900 text-white text-sm font-semibold hover:bg-gray-800 transition-colors"
+            className="ml-2 px-5 py-2.5 rounded-lg bg-teal-600 text-white text-sm font-semibold hover:bg-teal-700 shadow-md shadow-teal-200 transition-all hover:translate-y-[-1px]"
           >
             Enquire Now
           </button>

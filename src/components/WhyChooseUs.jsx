@@ -15,10 +15,10 @@ export default function WhyChooseUs({
     <section
       id="why"
       style={{ backgroundImage: `url(${trust})` }}
-      className="h-[80vh] flex flex-col justify-center items-center bg-cover bg-center relative"
+      className="min-h-[60vh] py-20 flex flex-col justify-center items-center bg-cover bg-center relative"
     >
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-xl md:backdrop-blur-none"></div>
 
       <div className="relative max-w-6xl mx-auto px-4 text-center text-white">
         {/* Title + Subtitle directly here */}
@@ -32,9 +32,16 @@ export default function WhyChooseUs({
           {reasons.map((r, i) => (
             <div
               key={i}
-              className="p-5 rounded-2xl border bg-white/80 backdrop-blur-md text-gray-900 text-center font-medium shadow-md"
+              className="p-5 rounded-2xl border bg-white/80 backdrop-blur-md text-gray-900 text-center shadow-md flex flex-col justify-center items-center"
             >
-              {r}
+              {typeof r === 'string' ? (
+                <span className="font-medium">{r}</span>
+              ) : (
+                <>
+                  <h4 className="font-bold text-lg mb-2 leading-tight">{r.title}</h4>
+                  <p className="text-sm text-gray-700 leading-relaxed">{r.description}</p>
+                </>
+              )}
             </div>
           ))}
         </div>

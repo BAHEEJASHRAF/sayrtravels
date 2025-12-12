@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer({ brandName = "Sayr Travels" }) {
   return (
-    <footer className="border-t bg-gray-50">
+    <footer className="border-t pb-8">
       <div className="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
         <div>
           <h2 className="font-bold text-lg">{brandName}</h2>
