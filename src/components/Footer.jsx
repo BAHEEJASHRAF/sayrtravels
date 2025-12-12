@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function Footer() {
+export default function Footer({ brandName = "Sayr Travels" }) {
   return (
     <footer className="border-t bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
         <div>
-          <h2 className="font-bold text-lg">Sayr Travels</h2>
+          <h2 className="font-bold text-lg">{brandName}</h2>
           <p className="mt-3 text-sm text-gray-600 max-w-sm">
             Compassionate guidance, trusted medical expertise, and seamless
             travel—designed for healing and exploration.
@@ -34,13 +34,13 @@ export default function Footer() {
         <div className="text-sm">
           <h6 className="font-semibold">Disclaimer</h6>
           <p className="mt-3 text-gray-600">
-            Sayr Travels is a facilitator and not a medical provider. Treatments
+            {brandName} is a facilitator and not a medical provider. Treatments
             are delivered by partner hospitals and licensed practitioners.
           </p>
         </div>
       </div>
       <div className="px-4 py-6 border-t text-center text-xs text-gray-500">
-        © {new Date().getFullYear()} Sayr Travels. All rights reserved.
+        © {new Date().getFullYear()} {brandName}. All rights reserved.
       </div>
     </footer>
   );

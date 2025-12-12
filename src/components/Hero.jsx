@@ -1,7 +1,12 @@
 import React from "react";
 import heroImg from "../assets/heroimg.jpg"; // import image
 
-export default function Hero() {
+export default function Hero({
+  title = "Where Travels Heal Your Health",
+  subtitle = "Your trusted partner for global medical journeys, wellness retreats, and meaningful travel experiences.",
+  onServicesClick,
+  onContactClick
+}) {
   return (
     <section
       id="home"
@@ -14,28 +19,29 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center text-white">
         <div>
           <h1 className="text-4xl md:text-5xl font-extrabold">
-            Where Travels Heal Your Health
+            {title}
           </h1>
           <p className="mt-5 text-lg leading-relaxed">
-            Your trusted partner for global medical journeys, wellness retreats,
-            and meaningful travel experiences.
+            {subtitle}
           </p>
           <div className="mt-8 flex gap-3">
             <a
               href="#services"
               className="px-5 py-3 rounded-xl bg-white text-gray-900 font-medium"
+              onClick={onServicesClick}
             >
               Explore Services
             </a>
             <a
               href="#contact"
               className="px-5 py-3 rounded-xl border font-medium bg-white/80 text-gray-900"
+              onClick={onContactClick}
             >
               Get Started
             </a>
           </div>
         </div>
-        
+
       </div>
     </section>
   );

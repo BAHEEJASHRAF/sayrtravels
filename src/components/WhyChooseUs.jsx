@@ -1,15 +1,16 @@
 import React from "react";
 import trust from "../assets/trust.jpg";
 
-export default function WhyChooseUs() {
-  const reasons = [
+export default function WhyChooseUs({
+  title = "Why Choose Sayr Travels",
+  reasons = [
     "Transparent, ethical guidance",
     "Multilingual patient support",
     "Priority hospital access",
     "End-to-end care coordination",
     "Healing + leisure in one journey",
-  ];
-
+  ]
+}) {
   return (
     <section
       id="why"
@@ -21,7 +22,7 @@ export default function WhyChooseUs() {
 
       <div className="relative max-w-6xl mx-auto px-4 text-center text-white">
         {/* Title + Subtitle directly here */}
-        <h2 className="text-3xl md:text-4xl font-bold">Why Choose Sayr Travels</h2>
+        <h2 className="text-3xl md:text-4xl font-bold">{title}</h2>
         <p className="mt-2 text-lg text-gray-200">
           Your trusted partner in health and travel
         </p>
