@@ -150,7 +150,7 @@ const DATA = {
 };
 
 export default function App() {
-  const [activeVertical, setActiveVertical] = useState('travels'); // 'travels' | 'med'
+  const [activeVertical, setActiveVertical] = useState('med'); // 'travels' | 'med'
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
 
   const content = DATA[activeVertical];

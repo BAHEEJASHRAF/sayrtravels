@@ -29,15 +29,6 @@ export default function Navbar({ activeVertical, onToggleVertical, onEnquiryClic
           {/* Vertical Toggle */}
           <div className="hidden sm:flex bg-gray-200 rounded-lg p-1">
             <button
-              onClick={() => onToggleVertical('travels')}
-              className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${activeVertical === 'travels'
-                ? 'bg-white shadow-sm text-gray-900'
-                : 'text-gray-500 hover:text-gray-700'
-                }`}
-            >
-              Travels
-            </button>
-            <button
               onClick={() => onToggleVertical('med')}
               className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${activeVertical === 'med'
                 ? 'bg-white shadow-sm text-gray-900'
@@ -45,6 +36,15 @@ export default function Navbar({ activeVertical, onToggleVertical, onEnquiryClic
                 }`}
             >
               Med
+            </button>
+            <button
+              onClick={() => onToggleVertical('travels')}
+              className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${activeVertical === 'travels'
+                ? 'bg-white shadow-sm text-gray-900'
+                : 'text-gray-500 hover:text-gray-700'
+                }`}
+            >
+              Travels
             </button>
           </div>
         </div>
@@ -72,9 +72,18 @@ export default function Navbar({ activeVertical, onToggleVertical, onEnquiryClic
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="px-3 py-2 rounded-lg border bg-white"
+            className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
+            aria-label="Toggle Menu"
           >
-            Menu
+            {mobileOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
       </div>

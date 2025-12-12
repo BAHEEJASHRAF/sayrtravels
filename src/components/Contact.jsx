@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import SectionTitle from "./SectionTitle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,21 +12,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    treatment: "",
-    message: "",
-  });
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log("Inquiry submitted:", form);
-    setSubmitted(true);
-    setForm({ name: "", email: "", phone: "", treatment: "", message: "" });
-  };
 
   return (
     <section id="contact" className="py-20 border-t bg-white">
@@ -35,40 +20,42 @@ export default function Contact() {
           title="Contact Us"
           subtitle="Tell us your treatment needs and travel preferences."
         />
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Contact Form */}
-          <form
-            onSubmit={onSubmit}
-            className="p-6 rounded-2xl border bg-gray-50 space-y-4"
-          >
-            {/* form fields unchanged... */}
-          </form>
-
+        <div className="flex justify-center">
           {/* Contact Info */}
-          <div className="p-6 rounded-2xl border bg-white">
-            <h4 className="text-lg font-semibold">Contact Details</h4>
-            <ul className="mt-4 space-y-3 text-gray-700">
-              <li className="flex items-center gap-2">
-                <FontAwesomeIcon icon={faPhone} className="text-gray-700" />
-                +91 00000 00000
+          <div className="w-full max-w-lg p-8 rounded-2xl border bg-white shadow-sm">
+            <h4 className="text-xl font-bold mb-6 text-gray-900">Contact Details</h4>
+            <ul className="space-y-4 text-gray-700">
+              <li className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
+                  <FontAwesomeIcon icon={faPhone} />
+                </div>
+                <a href="tel:+919400960166" className="font-medium hover:text-blue-600 transition-colors">94009 60166</a>
               </li>
-              <li className="flex items-center gap-2">
-                <FontAwesomeIcon icon={faEnvelope} className="text-gray-700" />
-                hello@sayrtravels.in
+              <li className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </div>
+                <a href="mailto:sayrtravels.in@gmail.com" className="font-medium hover:text-blue-600 transition-colors">sayrtravels.in@gmail.com</a>
               </li>
-              <li className="flex items-center gap-2">
-                <FontAwesomeIcon icon={faLocationDot} className="text-gray-700" />
-                Kerala, India
+              <li className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
+                  <FontAwesomeIcon icon={faLocationDot} />
+                </div>
+                <span className="font-medium">Kerala, India</span>
               </li>
-              <li className="flex items-center gap-2">
-                <FontAwesomeIcon icon={faWhatsapp} className="text-green-600 text-xl" />
-                <a href="https://wa.me/9194009601666" target="_blank" rel="noopener noreferrer">
+              <li className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-green-50 text-green-600 flex items-center justify-center">
+                  <FontAwesomeIcon icon={faWhatsapp} className="text-lg" />
+                </div>
+                <a href="https://wa.me/919400960166" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-green-700 transition-colors">
                   WhatsApp
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <FontAwesomeIcon icon={faInstagram} className="text-pink-500 text-xl" />
-                <a href="https://instagram.com/sayrtravels.in" target="_blank" rel="noopener noreferrer">
+              <li className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-pink-50 text-pink-500 flex items-center justify-center">
+                  <FontAwesomeIcon icon={faInstagram} className="text-lg" />
+                </div>
+                <a href="https://www.instagram.com/sayrtravels?igsh=MXNibmVyZnhwY2E2MA==" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-pink-600 transition-colors">
                   Instagram
                 </a>
               </li>
