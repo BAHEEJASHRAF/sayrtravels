@@ -9,7 +9,7 @@ const NavLink = ({ href, children }) => (
   </a>
 );
 
-export default function Navbar({ activeVertical, onToggleVertical }) {
+export default function Navbar({ activeVertical, onToggleVertical, onEnquiryClick }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   // Determine brand text based on vertical
@@ -31,8 +31,8 @@ export default function Navbar({ activeVertical, onToggleVertical }) {
             <button
               onClick={() => onToggleVertical('travels')}
               className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${activeVertical === 'travels'
-                  ? 'bg-white shadow-sm text-gray-900'
-                  : 'text-gray-500 hover:text-gray-700'
+                ? 'bg-white shadow-sm text-gray-900'
+                : 'text-gray-500 hover:text-gray-700'
                 }`}
             >
               Travels
@@ -40,8 +40,8 @@ export default function Navbar({ activeVertical, onToggleVertical }) {
             <button
               onClick={() => onToggleVertical('med')}
               className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${activeVertical === 'med'
-                  ? 'bg-white shadow-sm text-gray-900'
-                  : 'text-gray-500 hover:text-gray-700'
+                ? 'bg-white shadow-sm text-gray-900'
+                : 'text-gray-500 hover:text-gray-700'
                 }`}
             >
               Med
@@ -54,6 +54,12 @@ export default function Navbar({ activeVertical, onToggleVertical }) {
           <NavLink href="#services">Services</NavLink>
           <NavLink href="#wellness">Wellness</NavLink>
           <NavLink href="#contact">Contact</NavLink>
+          <button
+            onClick={onEnquiryClick}
+            className="ml-2 px-4 py-2 rounded-lg bg-gray-900 text-white text-sm font-semibold hover:bg-gray-800 transition-colors"
+          >
+            Enquire Now
+          </button>
         </nav>
         <div className="md:hidden flex items-center gap-2">
           {/* Mobile Toggle (Simplified) */}
@@ -78,6 +84,15 @@ export default function Navbar({ activeVertical, onToggleVertical }) {
           <NavLink href="#services">Services</NavLink>
           <NavLink href="#wellness">Wellness</NavLink>
           <NavLink href="#contact">Contact</NavLink>
+          <button
+            onClick={() => {
+              setMobileOpen(false);
+              onEnquiryClick();
+            }}
+            className="mt-2 w-full px-4 py-2 rounded-lg bg-gray-900 text-white text-sm font-semibold hover:bg-gray-800 transition-colors"
+          >
+            Enquire Now
+          </button>
         </div>
       )}
     </header>

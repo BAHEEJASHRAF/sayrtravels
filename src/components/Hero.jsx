@@ -1,3 +1,4 @@
+
 import React from "react";
 import heroImg from "../assets/heroimg.jpg"; // import image
 
@@ -5,7 +6,7 @@ export default function Hero({
   title = "Where Travels Heal Your Health",
   subtitle = "Your trusted partner for global medical journeys, wellness retreats, and meaningful travel experiences.",
   onServicesClick,
-  onContactClick
+  onEnquiryClick
 }) {
   return (
     <section
@@ -32,13 +33,12 @@ export default function Hero({
             >
               Explore Services
             </a>
-            <a
-              href="#contact"
+            <button
+              onClick={onEnquiryClick}
               className="px-5 py-3 rounded-xl border font-medium bg-white/80 text-gray-900"
-              onClick={onContactClick}
             >
               Get Started
-            </a>
+            </button>
           </div>
         </div>
 

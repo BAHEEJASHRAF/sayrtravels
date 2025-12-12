@@ -8,6 +8,7 @@ import Wellness from "./components/Wellness";
 import WhyChooseUs from "./components/WhyChooseUs";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import EnquiryForm from "./components/EnquiryForm";
 
 const DATA = {
   travels: {
@@ -150,6 +151,7 @@ const DATA = {
 
 export default function App() {
   const [activeVertical, setActiveVertical] = useState('travels'); // 'travels' | 'med'
+  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
 
   const content = DATA[activeVertical];
 
@@ -158,12 +160,13 @@ export default function App() {
       <Navbar
         activeVertical={activeVertical}
         onToggleVertical={setActiveVertical}
+        onEnquiryClick={() => setIsEnquiryOpen(true)}
       />
       <Hero
         title={content.hero.title}
         subtitle={content.hero.subtitle}
         onServicesClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-        onContactClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+        onEnquiryClick={() => setIsEnquiryOpen(true)}
       />
       <About
         title={content.about.title}
@@ -180,6 +183,11 @@ export default function App() {
       />
       <Contact />
       <Footer brandName={activeVertical === 'med' ? "Sayr Med" : "Sayr Travels"} />
+
+      <EnquiryForm
+        isOpen={isEnquiryOpen}
+        onClose={() => setIsEnquiryOpen(false)}
+      />
     </div>
   );
 }
